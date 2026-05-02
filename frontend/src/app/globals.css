@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  /* Custom Luxury Colors */
+  --color-obsidian: #0A0A0A;
+  --color-gold: #C5A059;
+  --color-gold-hover: #D4B272;
+  --color-pure-white: #FFFFFF;
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  /* Default to Dark Mode aesthetic for luxury feel */
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --card: #111111;
+  --card-foreground: #FFFFFF;
+  --popover: #111111;
+  --popover-foreground: #FFFFFF;
+  --primary: #C5A059;
+  --primary-foreground: #0A0A0A;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1A1A;
+  --muted-foreground: #A1A1AA;
+  --accent: #C5A059;
+  --accent-foreground: #0A0A0A;
+  --destructive: #7F1D1D;
+  --border: #333333;
+  --input: #333333;
+  --ring: #C5A059;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --card: #111111;
+  --card-foreground: #FFFFFF;
+  --popover: #111111;
+  --popover-foreground: #FFFFFF;
+  --primary: #C5A059;
+  --primary-foreground: #0A0A0A;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1A1A;
+  --muted-foreground: #A1A1AA;
+  --accent: #C5A059;
+  --accent-foreground: #0A0A0A;
+  --destructive: #7F1D1D;
+  --border: #333333;
+  --input: #333333;
+  --ring: #C5A059;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Spotlight Custom CSS */
+.spotlight-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0A0A0A;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at center, transparent 0%, #0A0A0A 80%);
+}
+
+.spotlight {
+  position: absolute;
+  width: 80vw;
+  height: 80vh;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+.spotlight-left {
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.4) 0%, transparent 70%);
+  top: 20%;
+  left: 20%;
+}
+
+.spotlight-mid {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+}
+
+.spotlight-right {
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.3) 0%, transparent 70%);
+  top: 30%;
+  right: 10%;
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.spotlight-title {
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.spotlight-description {
+  font-size: 1.25rem;
+  color: #A1A1AA;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.spotlight-button {
+  background-color: #C5A059;
+  color: #0A0A0A;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.spotlight-button:hover {
+  background-color: #D4B272;
+  transform: translateY(-2px);
+}
