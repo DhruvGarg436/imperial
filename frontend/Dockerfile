@@ -17,7 +17,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Environment variables must be present at build time
-ENV NEXT_PUBLIC_API_URL="https://imperials-backend-4hwdib62gq-uc.a.run.app"
+ENV NEXT_PUBLIC_API_URL="https://imperials-backend-65335169386.us-central1.run.app"
 
 RUN npm run build
 
